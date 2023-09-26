@@ -12,8 +12,7 @@ const Cookie = ({ handleClick }) => {
   const hidePlus = () => {
     setIsActive(false);
   };
-
-  setTimeout(hidePlus, 1000);
+  setTimeout(hidePlus, 900);
 
   return (
     <>
@@ -27,11 +26,19 @@ const Cookie = ({ handleClick }) => {
         }}
       />
       <span className={classes.plus}>
-        <img
-          src="https://cdn-icons-png.flaticon.com/512/3179/3179538.png"
-          alt="plus one"
-          style={{ visibility: active ? "visible" : "hidden" }}
-        />
+        <p
+          style={
+            active
+              ? {
+                  visibility: "visible",
+                  transform: "translateY(-25px)",
+                  transition: "transform 250ms",
+                }
+              : { visibility: "hidden" }
+          }
+        >
+          +1
+        </p>
       </span>
     </>
   );
