@@ -1,24 +1,43 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+
+import Money from "./components/Money/Money";
+import SaveMenu from "./components/SaveMenu/SaveMenu";
+import Comment from "./components/Comment/Comment";
+import Cookie from "./components/Cookie/Cookie";
+import ShopMenu from "./components/ShopMenu/ShopMenu";
+import UpdateMenu from "./components/UpdateMenu/UpdateMenu";
+import Credits from "./components/Credits/Credits";
+import UpperWrapper from "./components/Wrappers/UpperWrapper";
+import MidWrapper from "./components/Wrappers/MidWrapper";
+import MegaWrapper from "./components/Wrappers/MegaWrapper";
 
 function App() {
+  const [money_quantity, setMoney_Quantity] = useState(0);
+  let [cookiesps, setCookiesps] = useState(0);
+
+  let seconds = 60;
+  cookiesps = (money_quantity / seconds).toFixed(2);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <MegaWrapper>
+        <UpperWrapper>
+          <Money money_quantity={money_quantity} />
+          <SaveMenu cookiesps={cookiesps} />
+          <UpdateMenu />
+        </UpperWrapper>
+        <MidWrapper>
+          <Comment />
+          <Cookie
+            handleClick={() => {
+              setMoney_Quantity(money_quantity + 1);
+            }}
+          />
+        </MidWrapper>
+        <ShopMenu money_quantity={money_quantity} />
+      </MegaWrapper>
+      <Credits />
+    </>
   );
 }
 

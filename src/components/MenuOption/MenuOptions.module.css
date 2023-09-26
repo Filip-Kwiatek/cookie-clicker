@@ -1,0 +1,41 @@
+.big_wrapper {
+  display: flex;
+  margin-bottom: 2px;
+  border: 2px solid black;
+  position: relative;
+}
+
+.big_wrapper img {
+  position: absolute;
+  width: 56px;
+  height: 100%;
+  left: 0;
+}
+
+.small_wrapper {
+  display: flex;
+  list-style-type: none;
+  flex-direction: column;
+}
+
+.small_wrapper li {
+  border: none;
+  margin-bottom: 6px;
+}
+
+.title {
+  font-weight: bold;
+  letter-spacing: 2px;
+}
+
+.title img {
+  width: 16px;
+  height: 16px;
+  position: relative;
+  margin: 0px 4px 0px 4px;
+}
+
+.description {
+  font-size: 15px;
+  letter-spacing: 2px;
+}

@@ -1,0 +1,27 @@
+.cookie {
+  width: 168px;
+  cursor: pointer;
+  padding: 2px;
+}
+
+.cookie:hover {
+  filter: brightness(90%);
+}
+
+.cookie:active {
+  filter: brightness(70%);
+  transform: scale(95%);
+}
+
+.plus img {
+  transition: 1.5s;
+  position: absolute;
+  color: white;
+  width: 30px;
+  background-color: white;
+  border-radius: 50%;
+  border: 2px solid white;
+  top: 110px;
+  left: 795px;
+  visibility: hidden;
+}

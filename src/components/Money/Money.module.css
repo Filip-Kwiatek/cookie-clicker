@@ -1,0 +1,19 @@
+.wrapper {
+  display: flex;
+  justify-content: baseline;
+  align-items: center;
+  background-color: white;
+  width: fit-content;
+  border-radius: 18px;
+  margin: 10px 16px;
+}
+
+.image {
+  padding: 6px;
+}
+
+.wrapper span {
+  font-size: 20px;
+  font-weight: bold;
+  margin-left: 3px;
+}

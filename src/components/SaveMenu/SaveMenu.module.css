@@ -1,0 +1,25 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  width: fit-content;
+  height: 190px;
+  border-radius: 18px;
+  padding: 2px 6px;
+  margin: 10px 16px;
+  list-style-type: none;
+}
+
+.wrapper li:first-child {
+  margin-top: -10px;
+}
+
+.wrapper :nth-child(5) {
+  margin-top: 10px;
+}
+
+.wrapper a {
+  color: black;
+  font-weight: 700;
+  text-decoration: underline;
+}
