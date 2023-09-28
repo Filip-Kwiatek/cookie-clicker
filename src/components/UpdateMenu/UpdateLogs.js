@@ -48,13 +48,13 @@ const UpdateLogs = () => {
     <>
       {combinedLogs.map(({ data, version, logs1, logs2, logs3, index }) => {
         return (
-          <div key={index} className={classes.wrap}>
+          <ul key={version} className={classes.wrap}>
             <li>{data}</li>
             <li className={classes.black}>{version}</li>
             <li>{logs1}</li>
             <li>{logs2}</li>
             <li>{logs3}</li>
-          </div>
+          </ul>
         );
       })}
     </>

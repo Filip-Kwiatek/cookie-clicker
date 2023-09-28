@@ -12,29 +12,36 @@ import MidWrapper from "./components/Wrappers/MidWrapper";
 import MegaWrapper from "./components/Wrappers/MegaWrapper";
 
 function App() {
-  const [collectedCookies, setCollectedCookies] = useState(0);
+  let [collectedCookies, setCollectedCookies] = useState(0);
   let [cookiesps, setCookiesps] = useState(0);
 
-  let seconds = 60;
-  cookiesps = (collectedCookies / seconds).toFixed(2);
+  collectedCookies = collectedCookies.toFixed(0);
+  cookiesps = cookiesps.toFixed(2);
 
   return (
     <>
       <MegaWrapper>
         <UpperWrapper>
           <Money money_quantity={collectedCookies} />
-          <SaveMenu cookiesps={cookiesps} />
+          <SaveMenu cookiesps={cookiesps} setCookiesps={setCookiesps} />
           <UpdateMenu />
         </UpperWrapper>
         <MidWrapper>
           <Comment />
           <Cookie
             handleClick={() => {
-              setCollectedCookies(collectedCookies + 1);
+              setCollectedCookies((previousState) => {
+                return previousState + 1;
+              });
             }}
           />
         </MidWrapper>
-        <ShopMenu collectedCookies={collectedCookies} />
+        <ShopMenu
+          cookiesps={cookiesps}
+          setCookiesps={setCookiesps}
+          collectedCookies={collectedCookies}
+          setCollectedCookies={setCollectedCookies}
+        />
       </MegaWrapper>
       <Credits />
     </>

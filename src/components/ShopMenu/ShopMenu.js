@@ -61,8 +61,7 @@ const storeOffer = [
     increment: 500,
   },
   {
-    photo:
-      "https://orteil.dashnet.org/experiments/cookie/timemachineicon.png",
+    photo: "https://orteil.dashnet.org/experiments/cookie/timemachineicon.png",
     alt: "Timemachine",
     name: "Timemachine",
     price: 123456789,
@@ -72,17 +71,37 @@ const storeOffer = [
 ];
 
 const ShopMenu = (props) => {
+  const { collectedCookies, setCollectedCookies } = props;
+  const { cookiesps, setCookiesps } = props;
+
+  const handleBuy = (price, incrementBySecond) => {
+    setCookiesps((previousState) => {
+      setInterval(
+        () => setCollectedCookies((oldCount) => oldCount + incrementBySecond),
+        1500
+      );
+      return previousState + incrementBySecond;
+    });
+
+    setCollectedCookies((prevState) => {
+      return prevState - price;
+    });
+  };
+
   return (
     <ul className={classes.wrapper}>
       {storeOffer.map((element, index) => (
         <MenuOption
-          moneyQuantity={props.collectedCookies}
+          key={element.name}
+          collectedCookies={collectedCookies}
           photo={element.photo}
           alt={element.alt}
           name={element.name}
           price={element.price}
+          increment={element.increment}
           description={element.description}
           index={index}
+          onBuy={handleBuy}
         />
       ))}
     </ul>

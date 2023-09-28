@@ -1,3 +1,8 @@
+.wrap {
+  margin: 0;
+  padding: 0;
+}
+
 .wrap li {
   list-style-type: none;
   font-size: 16px;

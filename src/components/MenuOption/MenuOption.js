@@ -3,13 +3,31 @@ import React from "react";
 import classes from "./MenuOptions.module.css";
 
 const MenuOption = (props) => {
-  const { photo, alt, name, price, description, index } = props
+  const {
+    photo,
+    alt,
+    name,
+    increment,
+    description,
+    index,
+    collectedCookies,
+    onBuy,
+  } = props;
+
+  let { price } = props;
+
   return (
     <li
       key={index}
+      onClick={() => {
+        if (collectedCookies < price) {
+          return;
+        }
+        onBuy(price, increment);
+      }}
       className={classes.big_wrapper}
       style={
-        props.collectedCookies >= price
+        collectedCookies >= price
           ? {
               backgroundColor: "white",
               color: "black",
@@ -28,10 +46,9 @@ const MenuOption = (props) => {
           />
           {price}
         </p>
-        <li className={classes.description}>{description}</li>
+        <p className={classes.description}>{description}</p>
       </div>
     </li>
   );
-
 };
 export default MenuOption;

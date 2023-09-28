@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 
 import classes from "./SaveMenu.module.css";
 const SaveMenu = ({ cookiesps }) => {
-
   return (
     <ul className={classes.wrapper}>
       <li>
