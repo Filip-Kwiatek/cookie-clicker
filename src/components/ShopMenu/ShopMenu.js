@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import MenuOption from "../MenuOption/MenuOption";
 
 import classes from "./ShopMenu.module.css";
@@ -75,21 +75,36 @@ const ShopMenu = (props) => {
   const { collectedCookies, setCollectedCookies } = props;
   const { cookiesps, setCookiesps } = props;
 
-  const handleBuy = (price, incrementBySecond) => {
+  const handleBuy = (price, incrementBySecond, index) => {
     setCookiesps((previousState) => {
       setInterval(
         () => setCollectedCookies((oldCount) => oldCount + incrementBySecond),
-        1500
+        1100
       );
       return previousState + incrementBySecond;
     });
-    let costOfUpgrade = storeOffer.map((cost) => cost.price + 5);
-    console.log(costOfUpgrade);
+    const changingStoreFn = (prevState) => {
+      const nextState = [...prevState];
+      const nextObject = nextState[index];
+      nextObject.price = nextObject.price + Math.round(price * 0.1);
+
+      return nextState;
+    };
+    setStoreOffer(changingStoreFn);
+
+    // setStoreOffer(prevState => {
+    //   const nextState = prevState.map((singleProduct, currentIndex) => {
+    //     if (currentIndex === index) {
+    //       singleProduct.price += 100;
+    //     }
+    //     return singleProduct
+    //   })
+    //   return nextState
+    // })
 
     setCollectedCookies((prevState) => {
       return prevState - price;
     });
-    costOfUpgrade = price;
   };
 
   return (

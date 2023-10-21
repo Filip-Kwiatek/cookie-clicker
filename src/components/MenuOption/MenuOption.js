@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 
 import classes from "./MenuOptions.module.css";
 
@@ -16,6 +16,8 @@ const MenuOption = (props) => {
 
   let { price } = props;
 
+  let [quantity, setQuantity] = useState(0);
+
   return (
     <li
       key={index}
@@ -23,7 +25,10 @@ const MenuOption = (props) => {
         if (collectedCookies < price) {
           return;
         }
-        onBuy(price, increment);
+        setQuantity((prevState) => {
+          return prevState + 1;
+        });
+        onBuy(price, increment, index);
       }}
       className={classes.big_wrapper}
       style={
@@ -46,7 +51,15 @@ const MenuOption = (props) => {
           />
           {price}
         </p>
-        <p className={classes.description}>{description}</p>
+        <div className={classes.end_wrapper}>
+          <p className={classes.description}>{description}</p>
+          <p
+            className={classes.quantity}
+            style={{ visibility: quantity === 0 ? "hidden" : "visible" }}
+          >
+            {quantity}
+          </p>
+        </div>
       </div>
     </li>
   );

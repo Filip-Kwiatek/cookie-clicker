@@ -38,9 +38,21 @@
   margin: 0px 4px 0px 4px;
 }
 
+.end_wrapper {
+  display: flex;
+  flex-direction: row;
+}
+
 .description {
   margin: 0;
   display: inline;
   font-size: 15px;
   letter-spacing: 2px;
+}
+
+.quantity {
+  font-size: 18px;
+  font-weight: 700;
+  color: black;
+  margin-top: auto;
 }
