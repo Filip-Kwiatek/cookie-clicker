@@ -1,3 +1,51 @@
+.pointer {
+  position: absolute;
+  top: 130px;
+  left: 650px;
+}
+
+.grandma {
+  position: absolute;
+  top: 180px;
+  left: 640px;
+}
+
+.factory {
+  position: absolute;
+  top: 230px;
+  left: 650px;
+}
+
+.mine {
+  position: absolute;
+  top: 280px;
+  left: 690px;
+}
+
+.shipment {
+  position: absolute;
+  top: 130px;
+  right: 580px;
+}
+
+.alchemylab {
+  position: absolute;
+  top: 180px;
+  right: 570px;
+}
+
+.portal {
+  position: absolute;
+  top: 230px;
+  right: 580px;
+}
+
+.timemachine {
+  position: absolute;
+  top: 280px;
+  right: 600px;
+}
+
 .cookie {
   width: 168px;
   cursor: pointer;

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import MenuOption from "../MenuOption/MenuOption";
 
 import classes from "./ShopMenu.module.css";
@@ -71,9 +71,9 @@ const ShopMenu = (props) => {
       increment: 10000,
     },
   ]);
-
   const { collectedCookies, setCollectedCookies } = props;
   const { cookiesps, setCookiesps } = props;
+  let { setBoughtTimes } = props;
 
   const handleBuy = (price, incrementBySecond, index) => {
     setCookiesps((previousState) => {
@@ -91,7 +91,6 @@ const ShopMenu = (props) => {
       return nextState;
     };
     setStoreOffer(changingStoreFn);
-
     // setStoreOffer(prevState => {
     //   const nextState = prevState.map((singleProduct, currentIndex) => {
     //     if (currentIndex === index) {
@@ -113,6 +112,7 @@ const ShopMenu = (props) => {
         <MenuOption
           key={element.name}
           collectedCookies={collectedCookies}
+          setBoughtTimes={setBoughtTimes}
           photo={element.photo}
           alt={element.alt}
           name={element.name}
