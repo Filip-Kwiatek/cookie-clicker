@@ -105,7 +105,7 @@ const ShopMenu = (props) => {
       return prevState - price;
     });
   };
-
+  console.log(props.quantity);
   return (
     <ul className={classes.wrapper}>
       {storeOffer.map((element, index) => (

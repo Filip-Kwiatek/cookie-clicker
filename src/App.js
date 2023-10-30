@@ -12,7 +12,7 @@ import MidWrapper from "./components/Wrappers/MidWrapper";
 import MegaWrapper from "./components/Wrappers/MegaWrapper";
 
 function App() {
-  let [collectedCookies, setCollectedCookies] = useState(11111111000);
+  let [collectedCookies, setCollectedCookies] = useState(1000);
   let [cookiesps, setCookiesps] = useState(0);
 
   const [boughtTimes, setBoughtTimes] = useState({
@@ -26,21 +26,9 @@ function App() {
     timemachine: 0,
   });
 
-  // to przekazać najlepiej
-  // setBoughtTimes({
-  //   pointer: 20,
-  //   grandma: 0,
-  //   factory: 0,
-  //   mine: 0,
-  //   shipment: 0,
-  //   alchemylab: 0,
-  //   portal: 0,
-  //   timemachine: 0,
-  // })
-
   collectedCookies = collectedCookies.toFixed(0);
   cookiesps = cookiesps.toFixed(2);
-  
+
   return (
     <>
       <MegaWrapper>
